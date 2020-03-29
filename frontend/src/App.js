@@ -25,8 +25,11 @@ function App() {
 
     async function handleAddDev(data) {
         const response = await api.post('/devs', data);
-
-        setDevs([...devs, response.data]);
+        const ifExist = devs.find((dev) => dev.name === response.data.name);
+        console.log(ifExist);
+        if (!ifExist) {
+            setDevs([...devs, response.data]);
+        }
     }
 
     return (

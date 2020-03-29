@@ -20,12 +20,14 @@ module.exports = {
 
             const { name = login, avatar_url, bio } = response.data;
 
-            const techsArray = parseStringAsArray(techs);
+            let techsArray = parseStringAsArray(techs);
 
             const location = {
                 type: 'Point',
                 coordinates: [longitude, latitude],
             };
+
+            techsArray = techsArray.map(tech => tech.toLowerCase());
 
             const devCreate = await Dev.create({
                 github_username,

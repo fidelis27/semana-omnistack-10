@@ -5,7 +5,8 @@ import Main from "./pages/Main"
 import Profile from "./pages/Profile"
 
 const Routes = createAppContainer(
-    createStackNavigator({
+    createStackNavigator(
+        {
         Main: {
             screen: Main,
             navigationOptions: {
@@ -13,18 +14,25 @@ const Routes = createAppContainer(
             }
         },
         Profile: {
-            screen: Main,
+            screen: Profile,
             navigationOptions: {
                 title: 'Perfil no github'
             }
         }
-    }, {
+    }, 
+    {   
         defaultNavigationOptions:{
             headerTintColor: "#fff",
+            headerBackTitleVisible: false,
             headerStyle: {
-                backgroundColor:"#7d40e7"
-            }
-        }
+                backgroundColor:"#7d40e7",
+
+            },          
+            headerTitleAlign:'center',
+            
+            
+        },
+        
     })
 )
 
